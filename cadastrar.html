@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Viagens</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/cadastrar.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+</head>
+<body>
+<section id="secao-cadastro">
+    <form>
+        <h2>Cadastrar Nova Viagem</h2>
+        <div class="field linha">
+            <label>Destino</label>
+            <input type="text" name="destino" id="destino">
+            <span id="titulo-erro" class="is-error"></span>
+        </div>
+
+        <div class="field">
+            <label for="preco">Valor total da Viagem</label>
+            <input type="number" id="preco" name="preco">
+            <span id="preco-erro" class="is-error"></span>
+        </div>
+
+        <div class="field">
+            <label for="data">Data</label>
+            <input type="date" id="data" name="data">
+            <span id="data-erro" class="is-error"></span>
+        </div>
+
+        <div class="linha">
+            <button><a href="/index.html" class="btn">Cancelar</a></button>
+            <button type="button" id="botao-cadastrar">Salvar</button>
+        </div>
+        </div>
+    </form>
+</section>
+    
+    
+</body>
+</html>
