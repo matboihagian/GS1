@@ -233,3 +233,35 @@ img {
     display: grid;
 }
 
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.button-container button {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.button-container a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card__article {
+    position: relative;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card__article button {
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-top: auto;
+}

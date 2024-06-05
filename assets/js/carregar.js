@@ -24,18 +24,6 @@ function card (viagem){
     card.innerHTML = cardviagem
     document.querySelector("#listadeviagens").appendChild(card)
 }
-/*<a href="./cadastrar.html" class="card__button"> Cadastrar Nova Viagem <i class="ri-arrow-right-line"></i></a>
-    <a href="./index.html" class="card__button"> Home <i class="ri-arrow-right-line"></i></a>
-    </article>*/
 
-$("#ipt__pesquisa").on("input", function (event){
-    /*console.log($(this).val());*/
-    var search = $(this).val();
 
-    var busca = $.grep(viagens, function (object){
-        return object.name.toLowerCase().includes(search.toLowerCase());
-        
-    })
-    console.log(busca);
-})
     

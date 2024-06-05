@@ -8,14 +8,64 @@
     <script src="./assets/js/apagar.js" defer></script>
     <script src="./assets/js/cadastrar.js" defer></script>
     <script src="./assets/js/pesquisar.js" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
 </head>
 <body>
     <div class="lista">
-        <h1>Pesquisar Destino</h1>
-        <input type="text" id="ipt__pesquisa" placeholder="Buscar">
-        <button><a href="/index.html">Home</a></button>  
-    </div>  
+    <h1>Pesquisar Destino</h1>
+    <input type="text" id="ipt__pesquisa" placeholder="Buscar">
+    <div class="button-container">
+        <button><a href="./index.html">Home</a></button>
+    </div>
+    <div id="listadeviagens"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const viagens = JSON.parse(localStorage.getItem("viagens")) || [];
+            const search = document.getElementById('ipt__pesquisa');
+            const listadeviagens = document.getElementById('listadeviagens');
+
+            function card(viagem) {
+                const cardviagem = `
+                    <div>
+                        <article class="card__article">
+                            <img src="./assets/images/barco-a-vela.png" alt="image" class="card__img">
+                            <div class="card__data">
+                                <h3 class="card__title">Destino: ${viagem.destino} <br>R$ ${viagem.preco} </h3>
+                                <span class="card__price">${viagem.data} </span>
+                            </div>
+                            <img src="./assets/images/tartaruga.jpg" alt="image" class="card__bg">
+                            <button onClick="apagar('${viagem.id}')" type="button"><a href="">Remover <i class="ri-arrow-right-line"></i></a></button>
+                        </article>
+                    </div>
+                `;
+                const card = document.createElement("div");
+                card.id = viagem.id;
+                card.innerHTML = cardviagem;
+                listadeviagens.appendChild(card);
+            }
+
+            function renderViagens(filteredViagens) {
+                listadeviagens.innerHTML = '';
+                filteredViagens.forEach(viagem => card(viagem));
+            }
+
+            function filtrarViagens() {
+                const query = search.value.toLowerCase();
+                const filteredViagens = viagens.filter(viagem => viagem.destino.toLowerCase().includes(query));
+                renderViagens(filteredViagens);
+            }
+
+            search.addEventListener('input', filtrarViagens);
+
+            
+            renderViagens(viagens);
+        });
+
+        function apagar(id) {
+            console.log(`Apagar viagem com id: ${id}`);
+        }
+    </script>
+    </div>
 </body>
 </html>
